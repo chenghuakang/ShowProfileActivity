@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,28 +7,60 @@
     tools:orientation="vertical">
 
     <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="160px">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="40px"
+            android:background="@color/black"
+            />
+    </LinearLayout>
+
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/images"
+            android:layoput_gravity="center"
+            />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80px"
+            android:text="Full name"
+            android:textSize="32sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80px"
+            android:text="nickname" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80px"
+            android:text="Full name"
+            android:textSize="32sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80px"
+            android:text="Full name"
+            android:textSize="32sp"/>
+    </LinearLayout>
+
+    </LinearLayout>
 
 
-    />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/images"
-        android:padding="8px"
-         />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Full name" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="nickname" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
