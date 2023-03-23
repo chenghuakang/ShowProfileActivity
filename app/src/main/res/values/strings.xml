@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ShowProfileActivity</string>
+    <string name="full_name">full name</string>
+    <string name="nickname">nickname</string>
+    <string name="information">All the information</string>
+    <string name="information2">you choose</string>
+    <string name="pencil">pencil</string>
+    <string name="pencil2">pencil2</string>
 </resources>
