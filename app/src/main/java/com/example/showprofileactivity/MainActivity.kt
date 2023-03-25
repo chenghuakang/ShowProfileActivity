@@ -22,11 +22,6 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.user_edit_menu, menu)
         return true
     }
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.mymenu, menu)
-        return true
-    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle item selection
