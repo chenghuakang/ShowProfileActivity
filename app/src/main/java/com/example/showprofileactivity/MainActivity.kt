@@ -1,5 +1,6 @@
 package com.example.showprofileactivity
 
+import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Menu
@@ -14,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.user_edit_menu, menu)
+
         return true
     }
 
@@ -21,15 +23,23 @@ class MainActivity : AppCompatActivity() {
         // Handle item selection
         return when (item.itemId) {
             R.id.pencil -> {
-                //
+
                 true
             }
-            R.id.pencil2 -> {
+           R.id.pencil2 -> {
+
+                true
+            }
+            R.id.userEdit -> {
                 //
+                  val intent = Intent(this, EditProfileActivity::class.java)
+                  startActivity(intent)
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
     }
+
+
 }
 
