@@ -19,7 +19,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:orientation="horizontal"
             android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="Image button"
+                app:srcCompat="@android:drawable/ic_menu_camera" />
 
             <ImageView
                 android:id="@+id/imageView"
