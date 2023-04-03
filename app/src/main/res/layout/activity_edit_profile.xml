@@ -4,40 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:label="EditProfileActivity"
+    android:label="@string/editProfileActivity"
     android:orientation="vertical"
     android:parentActivityName=".MainActivity"
     tools:context=".EditProfileActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:baselineAligned="false"
         android:orientation="horizontal"
         android:padding="16dp">
 
         <LinearLayout
+            android:id="@+id/portraitView"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/imageButton"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_gravity="center"
-                android:contentDescription="Image button"
+                android:contentDescription="@null"
                 app:srcCompat="@android:drawable/ic_menu_camera" />
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginRight="16dp"
-                android:scaleType="fitCenter"
-                android:contentDescription="@string/portrait" />
+                android:layout_gravity="center"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="@string/portrait"
+                android:scaleType="fitCenter" />
         </LinearLayout>
 
         <LinearLayout
@@ -50,6 +52,7 @@
                 android:id="@+id/fullname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints="@string/full_name"
                 android:hint="@string/full_name"
                 android:inputType="text"
                 android:textSize="32sp" />
@@ -58,6 +61,7 @@
                 android:id="@+id/nickname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints="@string/nickname"
                 android:hint="@string/nickname"
                 android:inputType="text"
                 android:textSize="32sp" />
@@ -66,6 +70,7 @@
                 android:id="@+id/age"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints="@string/age"
                 android:hint="@string/age"
                 android:inputType="number"
                 android:textSize="32sp" />
@@ -74,6 +79,7 @@
                 android:id="@+id/gender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints="@string/gender"
                 android:hint="@string/gender"
                 android:inputType="text"
                 android:textSize="32sp" />
@@ -82,6 +88,7 @@
                 android:id="@+id/sport"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints="@string/sport"
                 android:hint="@string/sport"
                 android:inputType="text"
                 android:textSize="32sp" />
@@ -90,6 +97,7 @@
                 android:id="@+id/players"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints="@string/num_players"
                 android:hint="@string/num_players"
                 android:inputType="number"
                 android:textSize="32sp" />
@@ -98,6 +106,7 @@
                 android:id="@+id/location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints="@string/location"
                 android:hint="@string/location"
                 android:inputType="text"
                 android:textSize="32sp" />
@@ -106,6 +115,7 @@
                 android:id="@+id/skill"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints="@string/skill_lvl"
                 android:hint="@string/skill_lvl"
                 android:inputType="text"
                 android:textSize="32sp" />
@@ -115,6 +125,7 @@
                 android:id="@+id/equipment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints="@string/equipment"
                 android:hint="@string/equipment"
                 android:inputType="text"
                 android:textSize="32sp" />
@@ -123,6 +134,7 @@
                 android:id="@+id/disabled"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints="@string/info_disabled"
                 android:hint="@string/info_disabled"
                 android:inputType="text"
                 android:textSize="32sp" />
@@ -133,7 +145,7 @@
                 android:layout_height="match_parent"
                 android:backgroundTint="#2BAF14"
                 android:gravity="center_horizontal"
-                android:text="Save"
+                android:text="@string/save"
                 android:textColor="@android:color/white"
                 android:textSize="22sp" />
 

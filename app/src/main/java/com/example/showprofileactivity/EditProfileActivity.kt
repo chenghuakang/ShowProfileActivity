@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.ContentValues
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -14,6 +15,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -39,6 +41,10 @@ class EditProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
+        val editView = findViewById<LinearLayout>(R.id.portraitView)
+        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            editView.orientation = LinearLayout.HORIZONTAL
+        }
 
         sharedPreferences = getSharedPreferences("user", MODE_PRIVATE)
         fn = findViewById(R.id.fullname)
@@ -63,7 +69,8 @@ class EditProfileActivity : AppCompatActivity() {
         disabled.setText(
             sharedPreferences.getString("info_disabled", "default info_disabled").toString()
         )
-        imageUri = Uri.parse(sharedPreferences.getString("portrait_uri", "default image uri").toString())
+        imageUri =
+            Uri.parse(sharedPreferences.getString("portrait_uri", "default image uri").toString())
 
         val b = findViewById<Button>(R.id.button2)
         val cameraButton = findViewById<ImageButton>(R.id.imageButton)
