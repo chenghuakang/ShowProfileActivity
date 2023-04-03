@@ -163,6 +163,8 @@ class EditProfileActivity : AppCompatActivity() {
             putString(getString(R.string.info_disabled), disabled.toString())
             apply()
         }
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 
     private fun onSaveClick(outState: Bundle) {
@@ -177,6 +179,23 @@ class EditProfileActivity : AppCompatActivity() {
         outState.putString("skill_text", skill.toString())
         outState.putString("equipment_text", equipment.toString())
         outState.putString("disabled_text", disabled.toString())
+        val sharedPref = getSharedPreferences("user",MODE_PRIVATE) ?: return
+        with (sharedPref.edit()) {
+            putString(getString(R.string.full_name), fn.toString())
+            putString(getString(R.string.nickname), nick.toString())
+            putInt(getString(R.string.age), age.toString().toIntOrNull() ?: 0)
+            putString(getString(R.string.gender), gender.toString())
+            putString(getString(R.string.sport), sport.toString())
+            putInt(getString(R.string.num_players),  players.toString().toIntOrNull() ?: 0)
+            putString(getString(R.string.location), location.toString())
+            putString(getString(R.string.skill_lvl), skill.toString())
+            putString(getString(R.string.equipment), equipment.toString())
+            putString(getString(R.string.info_disabled), disabled.toString())
+            apply()
+        }
+
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 
 
