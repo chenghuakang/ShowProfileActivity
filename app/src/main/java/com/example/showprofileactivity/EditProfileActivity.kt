@@ -3,6 +3,7 @@ package com.example.showprofileactivity
 import android.app.Activity
 import android.content.ContentValues
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -32,12 +33,14 @@ class EditProfileActivity : AppCompatActivity() {
     private lateinit var cameraActivityResultLauncher: ActivityResultLauncher<Intent>
     private lateinit var galleryActivityResultLauncher: ActivityResultLauncher<Intent>
     private lateinit var imageUri: Uri
+    private lateinit var sharedPreferences: SharedPreferences
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
 
+        sharedPreferences = getSharedPreferences("user", MODE_PRIVATE)
         fn = findViewById(R.id.fullname)
         nick = findViewById(R.id.nickname)
         age = findViewById(R.id.age)
@@ -48,10 +51,26 @@ class EditProfileActivity : AppCompatActivity() {
         skill = findViewById(R.id.skill)
         equipment = findViewById(R.id.equipment)
         disabled = findViewById(R.id.disabled)
+        fn.setText(sharedPreferences.getString("full_name", "default full name").toString())
+        nick.setText(sharedPreferences.getString("nickname", "default nick name").toString())
+        age.setText(sharedPreferences.getInt("age", 0).toString())
+        gender.setText(sharedPreferences.getString("gender", "default gender").toString())
+        sport.setText(sharedPreferences.getString("sport", "default sport").toString())
+        players.setText(sharedPreferences.getInt("num_players", 0).toString())
+        location.setText(sharedPreferences.getString("location", "default location").toString())
+        skill.setText(sharedPreferences.getString("skill_lvl", "default skill").toString())
+        equipment.setText(sharedPreferences.getString("equipment", "default equipment").toString())
+        disabled.setText(
+            sharedPreferences.getString("info_disabled", "default info_disabled").toString()
+        )
+        imageUri = Uri.parse(sharedPreferences.getString("portrait_uri", "default image uri").toString())
 
         val b = findViewById<Button>(R.id.button2)
         val cameraButton = findViewById<ImageButton>(R.id.imageButton)
         val imageView = findViewById<ImageView>(R.id.imageView)
+        if (imageUri != Uri.EMPTY) {
+            imageView.setImageURI(imageUri)
+        }
 
         cameraButton.setOnClickListener {
             registerForContextMenu(cameraButton)
@@ -60,6 +79,8 @@ class EditProfileActivity : AppCompatActivity() {
 
         b.setOnClickListener {
             onSaveClick(savedInstanceState ?: Bundle())
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
 
         cameraActivityResultLauncher =
@@ -136,66 +157,35 @@ class EditProfileActivity : AppCompatActivity() {
         return super.onContextItemSelected(item)
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        //saves data when screen is rotated
-        super.onSaveInstanceState(outState)
-        outState.putString("fullname_text", fn.toString())
-        outState.putString("nickname_text", nick.toString())
-        outState.putInt("age_int", age.toString().toIntOrNull() ?: 0)
-        outState.putString("gender_text", gender.toString())
-        outState.putString("sport_text", sport.toString())
-        outState.putInt("players_int", players.toString().toIntOrNull() ?: 0)
-        outState.putString("location_text", location.toString())
-        outState.putString("skill_text", skill.toString())
-        outState.putString("equipment_text", equipment.toString())
-        outState.putString("disabled_text", disabled.toString())
-        val sharedPref = getSharedPreferences("user",MODE_PRIVATE) ?: return
-        with (sharedPref.edit()) {
-            putString(getString(R.string.full_name), fn.toString())
-            putString(getString(R.string.nickname), nick.toString())
-            putInt(getString(R.string.age), age.toString().toIntOrNull() ?: 0)
-            putString(getString(R.string.gender), gender.toString())
-            putString(getString(R.string.sport), sport.toString())
-            putInt(getString(R.string.num_players),  players.toString().toIntOrNull() ?: 0)
-            putString(getString(R.string.location), location.toString())
-            putString(getString(R.string.skill_lvl), skill.toString())
-            putString(getString(R.string.equipment), equipment.toString())
-            putString(getString(R.string.info_disabled), disabled.toString())
-            apply()
-        }
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-    }
-
     private fun onSaveClick(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putString("fullname_text", fn.toString())
-        outState.putString("nickname_text", nick.toString())
-        outState.putInt("age_int", age.toString().toIntOrNull() ?: 0)
-        outState.putString("gender_text", gender.toString())
-        outState.putString("sport_text", sport.toString())
-        outState.putInt("players_int", players.toString().toIntOrNull() ?: 0)
-        outState.putString("location_text", location.toString())
-        outState.putString("skill_text", skill.toString())
-        outState.putString("equipment_text", equipment.toString())
-        outState.putString("disabled_text", disabled.toString())
-        val sharedPref = getSharedPreferences("user",MODE_PRIVATE) ?: return
-        with (sharedPref.edit()) {
-            putString(getString(R.string.full_name), fn.toString())
-            putString(getString(R.string.nickname), nick.toString())
-            putInt(getString(R.string.age), age.toString().toIntOrNull() ?: 0)
-            putString(getString(R.string.gender), gender.toString())
-            putString(getString(R.string.sport), sport.toString())
-            putInt(getString(R.string.num_players),  players.toString().toIntOrNull() ?: 0)
-            putString(getString(R.string.location), location.toString())
-            putString(getString(R.string.skill_lvl), skill.toString())
-            putString(getString(R.string.equipment), equipment.toString())
-            putString(getString(R.string.info_disabled), disabled.toString())
+        val sharedPref = getSharedPreferences("user", MODE_PRIVATE) ?: return
+        with(sharedPref.edit()) {
+            sharedPref.edit().clear().apply()
+            if (fn.text.isNotEmpty())
+                putString("full_name", fn.text.toString())
+            if (nick.text.isNotEmpty())
+                putString("nickname", nick.text.toString())
+            if (age.text.isNotEmpty())
+                putInt("age", age.text.toString().toIntOrNull() ?: 0)
+            if (gender.text.isNotEmpty())
+                putString("gender", gender.text.toString())
+            if (sport.text.isNotEmpty())
+                putString("sport", sport.text.toString())
+            if (players.text.isNotEmpty())
+                putInt("num_players", players.text.toString().toIntOrNull() ?: 0)
+            if (location.text.isNotEmpty())
+                putString("location", location.text.toString())
+            if (skill.text.isNotEmpty())
+                putString("skill_lvl", skill.text.toString())
+            if (equipment.text.isNotEmpty())
+                putString("equipment", equipment.text.toString())
+            if (disabled.text.isNotEmpty())
+                putString("info_disabled", disabled.text.toString())
+            if (imageUri != Uri.EMPTY)
+                putString("portrait_uri", imageUri.toString())
             apply()
         }
-
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
     }
 
 

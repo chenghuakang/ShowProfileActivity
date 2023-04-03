@@ -1,9 +1,11 @@
 package com.example.showprofileactivity
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -23,10 +25,11 @@ class MainActivity : AppCompatActivity() {
         val skillValue = preferences.getString("skill_lvl", "default skill")
         val equipmentValue = preferences.getString("equipment", "default equipment")
         val disabledValue = preferences.getString("info_disabled", "default info_disabled")
-        val fullname: TextView = findViewById(R.id.fullname) as TextView
-        fullname.setText(fullNameValue)
-        val nickname: TextView = findViewById(R.id.nickname) as TextView
-        nickname.setText(nickNameValue)
+        val portraitUri = preferences.getString("portrait_uri", null)
+        val fullname: TextView = findViewById(R.id.fullname)
+        fullname.text = fullNameValue
+        val nickname: TextView = findViewById(R.id.nickname)
+        nickname.text = nickNameValue
         val age: TextView = findViewById(R.id.age1) as TextView
         age.setText(ageValue.toString())
         val gender: TextView = findViewById(R.id.gender) as TextView
@@ -43,9 +46,12 @@ class MainActivity : AppCompatActivity() {
         equipment.setText(equipmentValue)
         val disabled: TextView = findViewById(R.id.disabled) as TextView
         disabled.setText(disabledValue)
+        val portraitView = findViewById<ImageView>(R.id.imageView)
+        if (portraitUri != null) {
+            portraitView.setImageURI(Uri.parse(portraitUri))
+        }
 
     }
-
 
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -66,7 +72,7 @@ class MainActivity : AppCompatActivity() {
                 true
             }
             R.id.userEdit -> {
-                //
+                //S
                 val intent = Intent(this, EditProfileActivity::class.java)
                 startActivity(intent)
                 true
