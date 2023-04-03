@@ -41,7 +41,6 @@ class EditProfileActivity : AppCompatActivity() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         //saves data when screen is rotated
-
         super.onSaveInstanceState(outState)
         outState.putString("fullname_text",fn.toString())
         outState.putString("nickname_text",nick.toString())
@@ -54,4 +53,6 @@ class EditProfileActivity : AppCompatActivity() {
         outState.putString("equipment_text",equipment.toString())
         outState.putString("disabled_text",disabled.toString())
     }
+
+
 }

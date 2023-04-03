@@ -34,62 +34,72 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/full_name"
-                android:textSize="32sp" />
+                android:textSize="32sp"
+                android:id="@+id/fullname"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/nickname"
-                android:textSize="32sp" />
+                android:textSize="32sp"
+                android:id="@+id/nickname"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/age"
-                android:textSize="32sp" />
+                android:textSize="32sp"
+                android:id="@+id/age1"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/gender"
-                android:textSize="32sp" />
+                android:textSize="32sp"
+                android:id="@+id/gender"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/sport"
-                android:textSize="32sp" />
+                android:textSize="32sp"
+                android:id="@+id/sport"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/num_players"
-                android:textSize="32sp" />
+                android:textSize="32sp"
+                android:id="@+id/players"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/location"
-                android:textSize="32sp" />
+                android:textSize="32sp"
+                android:id="@+id/location"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/skill_lvl"
-                android:textSize="32sp" />
+                android:textSize="32sp"
+                android:id="@+id/skill"/>
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/equipment"
-                android:textSize="32sp" />
+                android:textSize="32sp"
+                android:id="@+id/equipment"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/info_disabled"
-                android:textSize="32sp" />
+                android:textSize="32sp"
+                android:id="@+id/disabled"/>
     </LinearLayout>
 
     </LinearLayout>
