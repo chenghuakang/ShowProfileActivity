@@ -14,4 +14,7 @@
     <string name="pencil2">pencil2</string>
     <string name="information">Add Info Here</string>
     <string name="information2">Add Info Here</string>
+    <string name="take_a_photo">Take a photo</string>
+    <string name="choose_from_gallery">Choose from Gallery</string>
+    <string name="portrait">portrait</string>
 </resources>
