@@ -17,4 +17,6 @@
     <string name="take_a_photo">Take a photo</string>
     <string name="choose_from_gallery">Choose from Gallery</string>
     <string name="portrait">portrait</string>
+    <string name="editProfileActivity">EditProfileActivity</string>
+    <string name="save">Save</string>
 </resources>
