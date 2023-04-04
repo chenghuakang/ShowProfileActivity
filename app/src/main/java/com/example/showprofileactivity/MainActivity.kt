@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val preferences = getSharedPreferences("user", MODE_PRIVATE)
+        val preferences = getSharedPreferences("user",MODE_PRIVATE)
         val fullNameValue = preferences.getString("full_name", "default full name")
         val nickNameValue = preferences.getString("nickname", "default nick name")
         val ageValue = preferences.getInt("age", 0)

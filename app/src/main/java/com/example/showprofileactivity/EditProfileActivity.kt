@@ -192,6 +192,7 @@ class EditProfileActivity : AppCompatActivity() {
             if (imageUri != Uri.EMPTY)
                 putString("portrait_uri", imageUri.toString())
             apply()
+
         }
     }
 
