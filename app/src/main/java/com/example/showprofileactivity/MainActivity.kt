@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -49,6 +50,12 @@ class MainActivity : AppCompatActivity() {
         val portraitView = findViewById<ImageView>(R.id.imageView)
         if (portraitUri != null) {
             portraitView.setImageURI(Uri.parse(portraitUri))
+        }
+
+        val pgButton = findViewById<Button>(R.id.pgButton)
+        pgButton.setOnClickListener {
+            val intent = Intent(this, PlaygroundActivity::class.java)
+            startActivity(intent)
         }
 
     }

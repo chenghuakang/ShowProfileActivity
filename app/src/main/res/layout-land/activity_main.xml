@@ -111,6 +111,14 @@
                 android:text="@string/info_disabled"
                 android:textSize="32sp" />
 
+            <Button
+                android:id="@+id/pgButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:text="Find Playground"
+                android:textSize="18sp" />
+
         </LinearLayout>
     </LinearLayout>
 
