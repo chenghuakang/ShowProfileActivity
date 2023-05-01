@@ -19,4 +19,7 @@
     <string name="portrait">portrait</string>
     <string name="editProfileActivity">EditProfileActivity</string>
     <string name="save">Save</string>
+    <string name="sportChoice">Choose a sport :</string>
+    <string name="football_opt">Football</string>
+    <string name="basketball_opt">Basketball</string>
 </resources>
