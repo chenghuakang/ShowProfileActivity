@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:baselineAligned="false"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="reservation message"
+                android:textSize="32sp" />
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/name"
+                android:textSize="32sp" />
+
+            <EditText
+                android:id="@+id/nickname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/nickname"
+                android:textSize="32sp" />
+
+            <EditText
+                android:id="@+id/age1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/age"
+                android:textSize="32sp" />
+
+            <EditText
+                android:id="@+id/gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/gender"
+                android:textSize="32sp" />
+
+            <EditText
+                android:id="@+id/sport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sport"
+                android:textSize="32sp" />
+
+            <EditText
+                android:id="@+id/players"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/num_players"
+                android:textSize="32sp" />
+
+            <EditText
+                android:id="@+id/location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/location"
+                android:textSize="32sp" />
+
+            <EditText
+                android:id="@+id/equipment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/equipment"
+                android:textSize="32sp" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="modify"
+                android:id="@+id/modify">
+            </Button>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
