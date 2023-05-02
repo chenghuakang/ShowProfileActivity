@@ -49,6 +49,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="406dp"
                 android:background="@color/white"></com.stacktips.view.CustomCalendarView>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/choose"
+                android:text="choose">
+
+            </Button>
 
         </LinearLayout>
     </ScrollView>

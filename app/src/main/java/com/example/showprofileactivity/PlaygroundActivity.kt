@@ -1,9 +1,11 @@
 package com.example.showprofileactivity
 
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.RadioButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -34,6 +36,12 @@ class PlaygroundActivity : AppCompatActivity() {
         calendarView?.decorators = decorators
         calendarView?.refreshCalendar(currentCalendar)
 
+        val b = findViewById<Button>(R.id.choose)
+        b.setOnClickListener {
+            //
+            val intent = Intent(this, ReservationActivity::class.java)
+            startActivity(intent)
+        }
         }
 
     //makes the background of past dates gray
