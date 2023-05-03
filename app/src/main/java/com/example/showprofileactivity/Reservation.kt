@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 data class Reservation(
     val name: String,
     val nickName: String,
-    val age: String,
+    val time: String,
     val location:String,
     val sport:String,
     val numPlayer:String,
