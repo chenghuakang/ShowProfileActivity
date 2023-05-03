@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 
 
 class ReservationActivity : AppCompatActivity() {
@@ -16,8 +17,7 @@ class ReservationActivity : AppCompatActivity() {
         val modifyButton = findViewById<Button>(R.id.modify)
         modifyButton.setOnClickListener {
             //
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            modifyReservation()
         }
         val cancleButton = findViewById<Button>(R.id.cancel_button)
         cancleButton.setOnClickListener {
@@ -25,6 +25,19 @@ class ReservationActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+
+
+    }
+    private fun modifyReservation(){
+        val fullName = R.string.name.toString()
+        val reservation1 =Reservation(fullName,"","xx","","","","")
+        val db =  MyDB.getDatabase(application)
+        val vm = ViewModelProvider(this,
+            ViewModelProvider.AndroidViewModelFactory(application)
+        )[MyViewModel::class.java]
+        vm.addReservation(reservation1)
+        val d = db.dao()
+        val data = d.getReservation()
 
     }
 }

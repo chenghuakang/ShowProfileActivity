@@ -1,13 +1,15 @@
 package com.example.showprofileactivity
 
 import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-
-public class MyViewModel(application: Application): ViewModel() {
+@HiltViewModel
+class MyViewModel(application: Application): AndroidViewModel(application) {
 
     private val readAllData: LiveData<List<Reservation>>
     private val repository1: Repository

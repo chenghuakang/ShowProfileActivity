@@ -3,7 +3,7 @@ package com.example.showprofileactivity
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity
+@Entity(tableName = "reservation")
 data class Reservation(
     val name: String,
     val nickName: String,

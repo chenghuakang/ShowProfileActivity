@@ -48,10 +48,15 @@ class PlaygroundActivity : AppCompatActivity() {
         }
     private fun insertDataToDatabase(){
         val reservation1 = Reservation("111","11","1","11","11","11","1",0)
+        val db =  MyDB.getDatabase(application)
         val vm = ViewModelProvider(this,
             ViewModelProvider.AndroidViewModelFactory(application)
         )[MyViewModel::class.java]
+        val resDao = db.dao()
         vm.addReservation(reservation1)
+
+
+
         Toast.makeText(applicationContext, "Successfully added!", Toast.LENGTH_LONG).show()
 
     }

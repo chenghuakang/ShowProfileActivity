@@ -31,22 +31,22 @@ class MainActivity : AppCompatActivity() {
         fullname.text = fullNameValue
         val nickname: TextView = findViewById(R.id.nickname)
         nickname.text = nickNameValue
-        val age: TextView = findViewById(R.id.age1) as TextView
-        age.setText(ageValue.toString())
-        val gender: TextView = findViewById(R.id.gender) as TextView
-        gender.setText(genderValue)
-        val sport: TextView = findViewById(R.id.sport) as TextView
-        sport.setText(sportValue)
-        val players: TextView = findViewById(R.id.players) as TextView
-        players.setText(playerValue.toString())
-        val location: TextView = findViewById(R.id.location) as TextView
-        location.setText(locationValue)
-        val skill: TextView = findViewById(R.id.skill) as TextView
-        skill.setText(skillValue)
-        val equipment: TextView = findViewById(R.id.equipment) as TextView
-        equipment.setText(equipmentValue)
-        val disabled: TextView = findViewById(R.id.disabled) as TextView
-        disabled.setText(disabledValue)
+        val age: TextView = findViewById<TextView>(R.id.age1)
+        age.text = ageValue.toString()
+        val gender: TextView = findViewById<TextView>(R.id.gender)
+        gender.text = genderValue
+        val sport: TextView = findViewById<TextView>(R.id.sport)
+        sport.text = sportValue
+        val players: TextView = findViewById<TextView>(R.id.players)
+        players.text = playerValue.toString()
+        val location: TextView = findViewById<TextView>(R.id.location)
+        location.text = locationValue
+        val skill: TextView = findViewById<TextView>(R.id.skill)
+        skill.text = skillValue
+        val equipment: TextView = findViewById<TextView>(R.id.equipment)
+        equipment.text = equipmentValue
+        val disabled: TextView = findViewById<TextView>(R.id.disabled)
+        disabled.text = disabledValue
         val portraitView = findViewById<ImageView>(R.id.imageView)
         if (portraitUri != null) {
             portraitView.setImageURI(Uri.parse(portraitUri))
