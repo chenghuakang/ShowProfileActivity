@@ -15,9 +15,10 @@ import com.stacktips.view.CustomCalendarView
 import com.stacktips.view.DayDecorator
 import com.stacktips.view.DayView
 import com.stacktips.view.utils.CalendarUtils
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
-
+@AndroidEntryPoint
 class PlaygroundActivity : AppCompatActivity() {
     var calendarView: CustomCalendarView? = null
 
@@ -47,11 +48,9 @@ class PlaygroundActivity : AppCompatActivity() {
         }
     private fun insertDataToDatabase(){
         val reservation1 = Reservation("111","11","1","11","11","11","1",0)
-        var vm = ViewModelProvider(this,
+        val vm = ViewModelProvider(this,
             ViewModelProvider.AndroidViewModelFactory(application)
-        ).get(
-            MyViewModel::class.java
-        )
+        )[MyViewModel::class.java]
         vm.addReservation(reservation1)
         Toast.makeText(applicationContext, "Successfully added!", Toast.LENGTH_LONG).show()
 
